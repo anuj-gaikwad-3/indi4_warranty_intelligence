@@ -1,4 +1,4 @@
-const DEFAULT_BASE_API = "https://kpcl-warranty-claims-backend.onrender.com";
+const DEFAULT_BASE_API = "https://indi4-warranty-intelligence-backend.onrender.com";
 
 // Allow local/dev override without changing code:
 // - PowerShell: $env:VITE_API_BASE_URL="http://localhost:8001"
