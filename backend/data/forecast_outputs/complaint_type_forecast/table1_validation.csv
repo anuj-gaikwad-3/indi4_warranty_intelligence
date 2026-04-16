@@ -1,0 +1,17 @@
+Date,Model,Top_Complaint_Type,Predicted,Predicted_p10,Predicted_p90,Actual_Count,Actual_Complaint_Text,Predicted_Part,Est_Cost_p50
+2025-11,KC4,Sound & Vibration,1,0,1,0,high oil consumption,Piston / Liner / Ring Set,43061
+2025-11,KCX2,Electrical & Instruments,1,0,1,0,high oil consumption,Pressure Gauge,4987
+2025-11,KCX3,Oil Consumption & Carryover,1,0,1,0,-,Piston / Liner / Ring Set,36399
+2025-11,KCX4,Oil Consumption & Carryover,2,1,2,0,high oil consumption,Piston / Liner / Ring Set,78331
+2025-11,KCX6,Oil Consumption & Carryover,2,1,2,0,high oil consumption,Piston / Liner / Ring Set,74505
+2025-11,KCX72,Oil Consumption & Carryover,1,0,1,0,abnormal noise,Piston / Liner / Ring Set,37173
+2025-12,KCX2,Electrical & Instruments,1,0,1,0,-,Pressure Gauge,4987
+2025-12,KCX3,Oil Consumption & Carryover,1,0,1,5,high oil consumption,Piston / Liner / Ring Set,36399
+2025-12,KCX4,Oil Consumption & Carryover,2,1,3,6,high oil consumption,Piston / Liner / Ring Set,78331
+2025-12,KCX6,Oil Consumption & Carryover,2,0,2,0,high oil consumption,Piston / Liner / Ring Set,74505
+2025-12,KCX72,Oil Consumption & Carryover,1,0,1,1,high oil consumption,Piston / Liner / Ring Set,37173
+2026-01,KCX2,Electrical & Instruments,1,0,1,0,high oil consumption,Pressure Gauge,4987
+2026-01,KCX3,Oil Consumption & Carryover,1,0,1,0,high oil consumption,Piston / Liner / Ring Set,36399
+2026-01,KCX4,Oil Consumption & Carryover,1,1,1,0,high oil consumption,Piston / Liner / Ring Set,39166
+2026-01,KCX6,Oil Consumption & Carryover,2,0,2,0,high oil consumption,Piston / Liner / Ring Set,74505
+2026-01,KCX72,Oil Consumption & Carryover,1,0,1,0,high oil consumption,Piston / Liner / Ring Set,37173
