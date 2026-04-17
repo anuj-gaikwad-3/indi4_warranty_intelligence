@@ -8,7 +8,8 @@
 const BASE_API = (() => {
     const host = window.location.hostname;
     if (host.includes('onrender.com') || host.includes('netlify') || host.includes('vercel')) {
-        return 'https://indi4-warranty-intelligence-backend.onrender.com';
+        // Replace with your actual deployed backend URL if needed
+        return '';
     }
     return ''; // same-origin for local dev (Vite proxy handles /api)
 })();
