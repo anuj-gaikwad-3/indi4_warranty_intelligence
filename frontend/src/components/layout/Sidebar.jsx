@@ -45,7 +45,7 @@ export default function Sidebar() {
           KP
         </div>
         <div className="flex flex-col leading-tight">
-          <h2 className="text-base font-extrabold tracking-tight text-white mb-0">KPCL Warranty</h2>
+          <h2 className="text-base font-extrabold tracking-tight text-white mb-0">Indi4 Warranty</h2>
           <span className="text-[10px] uppercase tracking-[1.4px] text-white/70 font-semibold">
             Intelligence
           </span>
