@@ -74,7 +74,7 @@ export default function LoginPage() {
           }}>KP</div>
 
           <h1 style={{ fontSize: "2.2rem", fontWeight: 900, color: "#fff", letterSpacing: -0.8, marginBottom: "0.75rem", lineHeight: 1.1 }}>
-            KPCL Warranty<br />
+            Indi4 Warranty<br />
             <span style={{ color: "#0075BE" }}>Intelligence</span>
           </h1>
           <p style={{ color: "rgba(255,255,255,0.68)", fontSize: 14.5, lineHeight: 1.7, marginBottom: "3rem" }}>
