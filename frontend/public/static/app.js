@@ -3,6 +3,16 @@
  * All charts rendered client-side via Chart.js from JSON API data.
  */
 
+// Backend API base URL – uses the deployed backend in production,
+// falls back to same-origin (works with Vite dev proxy locally).
+const BASE_API = (() => {
+    const host = window.location.hostname;
+    if (host.includes('onrender.com') || host.includes('netlify') || host.includes('vercel')) {
+        return 'https://indi4-warranty-intelligence-backend.onrender.com';
+    }
+    return ''; // same-origin for local dev (Vite proxy handles /api)
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const state = {
@@ -77,14 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchAllData() {
         const endpoints = {
-            overview: '/api/overview',
-            totalComplaints: '/api/total_complaints',
-            modelWise: '/api/model_wise',
-            modelValidation: '/api/model_wise/validation',
-            complaintTypes: '/api/complaint_types',
-            typeValidation: '/api/complaint_types/validation',
-            costData: '/api/complaint_types/costs',
-            insights: '/api/insights',
+            overview: BASE_API + '/api/overview',
+            totalComplaints: BASE_API + '/api/total_complaints',
+            modelWise: BASE_API + '/api/model_wise',
+            modelValidation: BASE_API + '/api/model_wise/validation',
+            complaintTypes: BASE_API + '/api/complaint_types',
+            typeValidation: BASE_API + '/api/complaint_types/validation',
+            costData: BASE_API + '/api/complaint_types/costs',
+            insights: BASE_API + '/api/insights',
         };
 
         const results = await Promise.all(
@@ -483,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.rendered.costDeepDive = true;
 
         try {
-            const typeData = await fetch('/api/data/complaint_types').then(r => r.json());
+            const typeData = await fetch(BASE_API + '/api/data/complaint_types').then(r => r.json());
             if (typeData && typeData.length) {
                 const sorted = typeData.sort((a, b) => b.Forecast_p50 - a.Forecast_p50);
                 const opts = hBarOpts({ showLegend: true });
@@ -504,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { console.warn('Complaint type chart failed:', e); }
 
         try {
-            const distData = await fetch('/api/data/type_distribution').then(r => r.json());
+            const distData = await fetch(BASE_API + '/api/data/type_distribution').then(r => r.json());
             if (distData && distData.length) {
                 state.charts.costHistDist = new Chart(
                     document.getElementById('costHistDistChart').getContext('2d'), {
@@ -654,7 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function renderModelDeepDive() {
         // Heatmap as bubble chart
         try {
-            const heatData = await fetch('/api/data/heatmap').then(r => r.json());
+            const heatData = await fetch(BASE_API + '/api/data/heatmap').then(r => r.json());
             if (heatData && heatData.length) {
                 const dateCols = Object.keys(heatData[0]).filter(k => k !== 'Model_masked');
                 const top15 = heatData.sort((a, b) => {
@@ -754,7 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Scatter
         try {
-            const scatterData = await fetch('/api/data/scatter').then(r => r.json());
+            const scatterData = await fetch(BASE_API + '/api/data/scatter').then(r => r.json());
             if (scatterData && scatterData.length) {
                 const maxVal = Math.max(...scatterData.map(r => Math.max(r.complaints || 0, r.predicted || 0)), 1);
                 state.charts.modelScatter = new Chart(
@@ -879,7 +889,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function renderTypeShareChart() {
         try {
-            const data = await fetch('/api/data/type_shares').then(r => r.json());
+            const data = await fetch(BASE_API + '/api/data/type_shares').then(r => r.json());
             if (!data || !data.length) return;
 
             const allCats = Object.keys(data[0]).filter(k => k !== 'Model_masked' && k !== 'index');
@@ -1030,7 +1040,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Feature importance
         try {
-            const fiData = await fetch('/api/data/feature_importance').then(r => r.json());
+            const fiData = await fetch(BASE_API + '/api/data/feature_importance').then(r => r.json());
             if (fiData && fiData.length) {
                 state.charts.trendsFeature = new Chart(
                     document.getElementById('trendsFeatureChart').getContext('2d'), {
@@ -1052,7 +1062,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (e) { console.warn('Feature importance failed:', e); }
 
-        // Decomposition chart has been replaced with the static image fetched from forecast_outputs
+        // Decomposition chart: set image src to correct backend URL
+        const decompImg = document.getElementById('trendsDecompImg');
+        if (decompImg) {
+            const plotPath = decompImg.getAttribute('data-plot-path') || '/api/plots/total_complaints_forecast/plot5_decomposition.png';
+            decompImg.src = BASE_API + plotPath;
+        }
     }
 
     init();
