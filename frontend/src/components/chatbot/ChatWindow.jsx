@@ -19,7 +19,7 @@ const SUGGESTIONS = [
 
 const INIT = {
   role: "bot",
-  text: "Hello! I'm **KBot**, your KPCL Warranty Intelligence assistant.\n\nI can analyse warranty data, calculate metrics, generate charts and troubleshoot problems. Try one of the suggestions below, or ask your own question.",
+  text: "Hello! I'm **iBot**, your Indi4 Warranty Intelligence assistant.\n\nI can analyse warranty data, calculate metrics, generate charts and troubleshoot problems. Try one of the suggestions below, or ask your own question.",
   options: SUGGESTIONS,
   time: time(),
 };
