@@ -101,7 +101,7 @@ export default function LandingPage() {
             fontWeight: 800, fontSize: 13, color: "#fff", letterSpacing: 0.5,
           }}>KP</div>
           <div>
-            <div style={{ fontWeight: 800, fontSize: 15, color: "#fff", lineHeight: 1.1 }}>KPCL Warranty</div>
+            <div style={{ fontWeight: 800, fontSize: 15, color: "#fff", lineHeight: 1.1 }}>Indi4 Warranty</div>
             <div style={{ fontSize: 9, color: "rgba(255,255,255,0.6)", letterSpacing: 2, textTransform: "uppercase", fontWeight: 700 }}>Intelligence</div>
           </div>
         </div>
@@ -206,7 +206,7 @@ export default function LandingPage() {
             lineHeight: 1.7, marginBottom: "2.5rem", fontWeight: 400,
           }}>
             A unified platform combining real-time analytics dashboards, AI-powered chatbot diagnostics,
-            and ML-based forecasting — built specifically for KPCL warranty claims management.
+            and ML-based forecasting — built specifically for Indi4 warranty claims management.
           </p>
 
           {/* CTAs */}
@@ -262,7 +262,7 @@ export default function LandingPage() {
               <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#febc2e" }} />
               <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#27c93f" }} />
               <div style={{ flex: 1, background: "rgba(255,255,255,0.08)", borderRadius: 6, height: 20, marginLeft: 8, display: "flex", alignItems: "center", paddingLeft: 10 }}>
-                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.45)" }}>localhost:5173/app — KPCL Warranty Intelligence</span>
+                <span style={{ fontSize: 10, color: "rgba(255,255,255,0.45)" }}>localhost:5173/app — Indi4 Warranty Intelligence</span>
               </div>
             </div>
             {/* Actual platform demo video */}
