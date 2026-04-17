@@ -11,7 +11,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="KPCL Warranty Intelligence Platform")
+app = FastAPI(title="Indi4 Warranty Intelligence Platform")
 
 app.add_middleware(
     CORSMiddleware,
@@ -30,7 +30,7 @@ from app.forecasting.routes import router as forecast_router
 
 # Forecasting API should always be available.
 app.include_router(forecast_router, prefix="/api/v1/forecast", tags=["Forecasting"])
-# Legacy alias for the KPCLwarrantyClaims static frontend (expects /api/*).
+# Legacy alias for the Indi4warrantyClaims static frontend (expects /api/*).
 app.include_router(forecast_router, prefix="/api", tags=["ForecastingLegacy"])
 
 # Dashboard + Chatbot can have heavier/optional dependencies.
@@ -59,7 +59,7 @@ if FORECAST_UI_DIR.exists():
 async def root():
     return {
         "status": "online",
-        "message": "KPCL Warranty Intelligence Platform",
+        "message": "Indi4 Warranty Intelligence Platform",
         "services": {
             "dashboard": "/api/v1/dashboard",
             "chatbot": "/api/v1/chatbot",
